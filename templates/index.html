@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Requirements Management Tool</title>
+</head>
+
+<body>
+    <h1>Requirements</h1>
+    <form id="requirementForm">
+        <input type="text" name="title" placeholder="Title" required />
+        <textarea name="description" placeholder="Description" required></textarea>
+        <select name="priority">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+        </select>
+        <input type="text" name="status" placeholder="Status" required />
+        <button type="submit">Add Requirement</button>
+    </form>
+
+    <h2>Existing Requirements</h2>
+    <ul>
+        {% for req in requirements %}
+        <li>
+            {{ req.title }} - {{ req.description }} - {{ req.priority }} - {{
+            req.status }} - Version: {{ req.version }}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="/requirements/trace">View Traceability Diagram</a>
+
+    <script>
+        document.getElementById("requirementForm").onsubmit = function (e) {
+            e.preventDefault();
+            let formData = new FormData(this);
+            let jsonData = {};
+            formData.forEach((value, key) => (jsonData[key] = value));
+            fetch("/requirements", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(jsonData),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    location.reload();
+                });
+        };
+    </script>
+</body>
+
+</html>
