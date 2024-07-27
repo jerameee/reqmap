@@ -1,7 +1,8 @@
 import os
 from io import BytesIO
 
-import pygraphviz as pgv
+import networkx as nx
+import matplotlib.pyplot as plt
 from flask import Flask, jsonify, render_template, request, send_file
 
 from models import Requirement, db
@@ -56,15 +57,23 @@ def delete_requirement(id):
 @app.route('/requirements/trace', methods=['GET'])
 def trace_requirements():
     requirements = Requirement.query.all()
-    graph = pgv.AGraph(directed=True)
+    graph = nx.DiGraph()
 
     for req in requirements:
         graph.add_node(req.id, label=req.title)
         if req.parent_id:
             graph.add_edge(req.parent_id, req.id)
 
+    plt.figure(figsize=(12, 8))
+    pos = nx.spring_layout(graph)
+    nx.draw(graph, pos, with_labels=True, arrows=True, node_size=3000, node_color='lightblue')
+
+    labels = nx.get_node_attributes(graph, 'label')
+    nx.draw_networkx_labels(graph, pos, labels, font_size=8)
+
     output = BytesIO()
-    graph.draw(output, format='png', prog='dot')
+    plt.savefig(output, format='png')
+    plt.close()
     output.seek(0)
     return send_file(output, mimetype='image/png')
 
