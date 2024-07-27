@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
         "onupdate",
+        "preInstallCommand",
         "pygraphviz",
         "Requirment",
         "sqlalchemy"
