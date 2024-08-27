@@ -1,7 +1,5 @@
 # REQMAP
 
-# ReqMap
-
 ReqMap is a web-based application for managing and visualizing software requirements. It allows users to create, update, and delete requirements, as well as view their relationships in a traceability diagram.
 
 ## Features
@@ -63,7 +61,3 @@ python -m unittest test_app.py
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
