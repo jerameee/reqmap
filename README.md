@@ -1,6 +1,6 @@
 # REQMAP
 
-ReqMap is a web-based application for managing and visualizing software requirements. It allows users to create, update, and delete requirements, as well as view their relationships in a traceability diagram.
+ReqMap is a web-based application for managing and visualizing software requirements. It allows users to create, update, and delete requirements, as well as view their relationships in a traceability diagram.You cna view the fujll documentation [here](https://jerameee.github.io/reqmap-docs/)
 
 ## Features
 
@@ -15,6 +15,7 @@ ReqMap is a web-based application for managing and visualizing software requirem
 - Database: SQLite with SQLAlchemy ORM
 - Frontend: HTML, CSS
 - Visualization: NetworkX, Matplotlib
+- Docs MkDocs
 
 ## Installation
 
