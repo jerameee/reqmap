@@ -58,7 +58,3 @@ Run the unit tests with:
 ```
 python -m unittest test_app.py
 ```
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
