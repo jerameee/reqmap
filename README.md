@@ -20,26 +20,30 @@ ReqMap is a web-based application for managing and visualizing software requirem
 ## Installation
 
 1. Clone the repository:
-   ```
+
+   ``` bash
    git clone https://github.com/your-username/reqmap.git
    cd reqmap
    ```
 
 2. Create a virtual environment and activate it:
-   ```
+
+   ``` bash
    python -m venv venv
    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
    ```
 
 3. Install the required packages:
-   ```
+
+   ``` bash
    pip install -r requirements.txt
    ```
 
 ## Running the Application
 
 1. Start the Flask development server:
-   ```
+
+   ``` bash
    python app.py
    ```
 
@@ -55,6 +59,7 @@ ReqMap is a web-based application for managing and visualizing software requirem
 ## Testing
 
 Run the unit tests with:
-```
+
+``` bash
 python -m unittest test_app.py
 ```
